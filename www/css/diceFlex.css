@@ -1,0 +1,48 @@
+#flex1, #flex2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 175px;
+  height: 50px;
+  margin: auto;
+
+}
+
+#flex2{
+  height: 140px;
+}
+
+#flex1_1, #flex1_2, #flex1_3, #flex2_1, #flex2_2, #flex2_3 {
+  display: flex;
+  justify-content: space-between;
+
+}
+/*
+#flex1_1 button, #flex1_2 button, #flex1_3 button, #flex2_1 button, #flex2_2 button, #flex2_3 button {
+  min-width: 55px;
+}
+
+#flex2_4 button{
+  width: 55px;
+
+
+*/
+#flex2_4 {
+  display: flex;
+  justify-content: center;
+}
+
+form button {
+  width: 55px;
+  min-width: 55px;
+}
+
+
+input {
+  width:53px;
+  text-align: center;
+}
+
+.invis {
+  display:none;
+}

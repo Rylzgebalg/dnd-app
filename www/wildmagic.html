@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Wild Magic</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/wildmagicScript.js"></script>
+    <script src="js/menuChange.js"></script>
+
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/wildmagic.css">
+
+
+  </head>
+  <body onload="selectMenuOnStart()">
+    <nav id="navigation">
+      <a><img id="flipThis" class="navButtons" src="img/arrowright.png" onclick ="changeMenu()"></a>
+      <a href="dice.html" class="row1"><img class="navButtons" src="img/dice.png"></a>
+      <a href="wildmagic.html" class="row1"><img class="navButtons" src="img/wildm.png"></a>
+      <a href="spellslots.html" class="row1"><img class="navButtons" src="img/spellslots.png"></a>
+      <a href="consumables.html" class="row2"><img class="navButtons" src="img/cons.png"></a>
+      <a href="index.html" class="row2"><img class="navButtons" src="img/nocross.png"></a>
+      <a href="index.html" class="row2"><img class="navButtons" src="img/nocross.png"></a>
+      <a><img class="navButtons" src="img/arrowright.png" onclick ="changeMenu()"></a>
+    </nav>
+
+  </section>
+  <section id="content">
+    <br><br><br>
+    <button type="button" onclick="surge()">WILD MAGIC SURGE</button>
+    <p id="surge"></p>
+  </section>
+  </body>
+</html>

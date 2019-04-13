@@ -1,0 +1,53 @@
+
+
+td img {
+  height: 50px;
+  background-color: green;
+
+}
+
+#hc, #wl, #sc {
+  display: none;
+}
+
+#content{
+  margin-right: 0;
+  margin-left: 0;
+  width:100%;
+  text-align: center;
+  color: #58180d;
+  font-size: 18px;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+}
+
+body{
+  background-color: #e5dec1;
+
+}
+
+input, select{
+  font-size:20px;
+}
+
+input {
+  height: 27px;
+  border: 1px solid #c9ad6a;
+  width: 35px;
+}
+
+select{
+  width:95%;
+}
+
+.header {
+  display: inline-block;
+  text-decoration: underline;
+  text-decoration-color: #c9ad6a;
+  font-size: 26px;
+  color: #58180d;
+  margin-bottom: 0.5rem;
+}

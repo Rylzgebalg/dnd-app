@@ -1,0 +1,46 @@
+#content > button {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+div img {
+  height: 20px;
+  border: 1px black solid;
+  background-color: red;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+div {
+  text-align: left;
+  width:95%;
+  border: 5px #c9ad6a double;
+  background-color: #F5F5DC;
+  margin: auto;
+  margin-top: 0.5rem;
+  position: relative;
+}
+
+div span {
+  display: inline-block;
+  min-width: 50%;
+  /*border: 5px blue double;*/
+  text-align: left;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin: 8px 12px;
+  color: #58180d;
+}
+
+div input {
+  width: 50px;
+  text-align: center;
+}
+
+
+input + button {
+  
+}

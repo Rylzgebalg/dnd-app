@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/spellslotsScript.js"></script>
+    <script src="js/scriptDice.js"></script>
+    <script src="js/menuChange.js"></script>
+
+
+    <title></title>
+  </head>
+  <body onload="firstStart(), selectMenuOnStart()">
+    <nav id="navigation">
+      <a><img id="flipThis" class="navButtons" src="img/arrowright.png" onclick ="changeMenu()"></a>
+      <a href="dice.html" class="row1"><img class="navButtons" src="img/dice.png"></a>
+      <a href="wildmagic.html" class="row1"><img class="navButtons" src="img/wildm.png"></a>
+      <a href="spellslots.html" class="row1"><img class="navButtons" src="img/spellslots.png"></a>
+      <a href="consumables.html" class="row2"><img class="navButtons" src="img/cons.png"></a>
+      <a href="index.html" class="row2"><img class="navButtons" src="img/nocross.png"></a>
+      <a href="index.html" class="row2"><img class="navButtons" src="img/nocross.png"></a>
+      <a><img class="navButtons" src="img/arrowright.png" onclick ="changeMenu()"></a>
+    </nav>
+    <section id="content">
+      <p class="header">Class</p>
+      <select id="select" onchange="showWhichTable(this.value), saveMySlots()">
+        <option value="fc">Bard, Cleric, Druid, Sorcerer, Wizard</option>
+        <option value="hc">Paladin, Ranger</option>
+        <option value="wl">Warlock</option>
+        <option value="sc">Arcane Trickster, Eldritch Knight</option>
+      </select>
+      <br>
+      <!--<button type="button" onclick="localStorage.clear()">Fötus Tötus</button>-->
+      <p class="header">Level</p><br>
+      <button id="-Sides" class="smallButton" type="button" onclick="changeSides(this.id), showSlots(), setWarlockSlotLevel(), saveMySlots()">-</button>
+      <input id="sides" type="number" min="1" max ="20" value ="1" onchange="showSlots(), saveMySlots()">
+      <button id="+Sides" class="smallButton" type="button" onclick="changeSides(this.id), checkTwenty(), showSlots(), setWarlockSlotLevel(), saveMySlots()">+</button>
+      <br><br><br>
+      <button type="button" onclick="longRest(), saveMySlots()">Long Rest</button>
+      <table id="fc" class="slotTable">
+        <tr>
+          <th>Slot Level</th>
+          <th colspan="4">Slots</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><img class="1 slot" id ="fcl1s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="1 slot" id ="fcl1s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="2 slot" id ="fcl1s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="3 slot" id ="fcl1s4" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><img class="3 slot" id ="fcl2s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="3 slot" id ="fcl2s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="4 slot" id ="fcl2s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><img class="5 slot" id ="fcl3s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="5 slot" id ="fcl3s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="6 slot" id ="fcl3s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><img class="7 slot" id ="fcl4s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="8 slot" id ="fcl4s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="9 slot" id ="fcl4s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><img class="9 slot" id ="fcl5s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="10 slot" id ="fcl5s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="18 slot" id ="fcl5s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><img class="11 slot" id ="fcl6s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="19 slot" id ="fcl6s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><img class="13 slot" id ="fcl7s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="20 slot" id ="fcl7s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><img class="15 slot" id ="fcl8s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><img class="17 slot" id ="fcl9s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+
+      <table id="hc" class="slotTable">
+        <tr>
+          <th>Slot Level</th>
+          <th colspan="4">Slots</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><img class="2 slot" id ="hcl1s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="2 slot" id ="hcl1s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="3 slot" id ="hcl1s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="5 slot" id ="hcl1s4" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><img class="5 slot" id ="hcl2s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="5 slot" id ="hcl2s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="7 slot" id ="hcl2s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><img class="9 slot" id ="hcl3s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="9 slot" id ="hcl3s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="11 slot" id ="hcl3s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><img class="13 slot" id ="hcl4s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="15 slot" id ="hcl4s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="17 slot" id ="hcl4s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><img class="17 slot" id ="hcl5s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="19 slot" id ="hcl5s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+
+
+      <table id="wl" class="slotTable">
+        <tr>
+          <th>Slot Level</th>
+          <th colspan="4">Slots</th>
+        </tr>
+        <tr>
+          <td id="wlSlotLevel">1</td>
+          <td><img class="1 slot" id ="wll1s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="2 slot" id ="wll1s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="11 slot" id ="wll1s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="17 slot" id ="wll1s4" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+        </tr>
+        <tr>
+          <td>6 <br>(Arcanum)</td>
+          <td><img class="11 slot" id ="wll2s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>7 <br>(Arcanum)</td>
+          <td><img class="13 slot" id ="wll3s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>8 <br>(Arcanum)</td>
+          <td><img class="15 slot" id ="wll4s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>9 <br>(Arcanum)</td>
+          <td><img class="17 slot" id ="wll5s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+
+      <table id="sc" class="slotTable">
+        <tr>
+          <th>Slot Level</th>
+          <th colspan="4">Slots</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><img class="3 slot" id ="scl1s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="3 slot" id ="scl1s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="4 slot" id ="scl1s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="7 slot" id ="scl1s4" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><img class="7 slot" id ="scl2s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="7 slot" id ="scl2s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="10 slot" id ="scl2s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><img class="13 slot" id ="scl3s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="13 slot" id ="scl3s2" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td><img class="16 slot" id ="scl3s3" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><img class="19 slot" id ="scl4s1" src="img/okcircle.png" onclick="changeSlot(this.id)"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+
+    </section>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+button{
+  font-size: 20px;
+  background-color: #c9ad6a;
+  min-width:30px;
+  min-height: 30px;
+  border: none;
+  color: white;
+}
+
+
+
+button:active{
+    background-color: #58180d;
+}
+
+button:focus{
+  outline:0;
+}
