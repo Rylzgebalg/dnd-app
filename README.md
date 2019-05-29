@@ -5,5 +5,5 @@
 
 ## Patchnotes
 ### 29.05.19: Ver. 0.5 "Ich habe Hunger, ich möchte frühstücken"-Update
-### Neu:
+#### Neu:
 + Verpflegungs-Tracker für Out of the Abyss
