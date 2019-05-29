@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Wild Magic</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/menuChange.js"></script>
+    <script src="js/upkeepScript.js"></script>
+    <script src="js/plusMinusButtons.js"></script>
+
+
+
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/upkeepStyle.css">
+    
+
+  </head>
+  <body onload="selectMenuOnStart(), loadUpkeepData()">
+    <nav id="navigation">
+        <a><img id="flipThis" class="navButtons" src="img/arrowright.png" onclick ="changeMenu()"></a>
+        <a href="dice.html" class="row1"><img class="navButtons" src="img/dice.png"></a>
+        <a href="wildmagic.html" class="row1"><img class="navButtons" src="img/wildm.png"></a>
+        <a href="spellslots.html" class="row1"><img class="navButtons" src="img/spellslots.png"></a>
+        <a href="consumables.html" class="row2"><img class="navButtons" src="img/cons.png"></a>
+        <a href="upkeep.html" class="row2"><img class="navButtons" src="img/flesh.png"></a>
+        <a href="index.html" class="row2"><img class="navButtons" src="img/nocross.png"></a>
+        <a><img class="navButtons" src="img/arrowright.png" onclick ="changeMenu()"></a>
+    </nav>
+    <section id="content">
+        <p class="header">Day <span id="day">1</span></p>
+
+        <p>Enter group size: 
+          <button type="button" onclick="changeInput('groupsize', this.innerHTML, 1), createBars(), saveData()">-</button>  
+          <input id="groupsize" type="number" min="0" value="0" onchange="createBars(), saveData()">
+          <button type="button" onclick="changeInput('groupsize', this.innerHTML, 1), createBars(), saveData()">+</button>  
+
+        </p>
+        
+        <table align="center">
+            <tr>
+                <th>Food</th>
+                <th class="borderleft">Water</th>
+            </tr>
+            <tr>
+                <td>
+                  <button type="button" id="ll" onclick="changeInput('foodcount', this.innerHTML, 1), saveData()">-</button>
+                  <input id="foodcount" type="number" value="0" onchange="saveData()">
+                  <button type="button" id="ll" onclick="changeInput('foodcount', this.innerHTML, 1), saveData()">+</button>
+                </td>
+                <td class="borderleft">
+                  <button type="button" id="ll" onclick="changeInput('watercount', this.innerHTML, 1), saveData()">-</button>
+                  <input id="watercount" type="number" value="0" onchange="saveData()">
+                  <button type="button" id="ll" onclick="changeInput('watercount', this.innerHTML, 1), saveData()">+</button>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+
+        <button type="button" onclick="distributeSupplies()">Distribute</button>
+        <button type="button" onclick="endDay(), saveData()">End day</button>
+        <br><br>
+        <button type="button" onclick="resetData()">Reset</button>
+        <button type="button" onclick="revertDay()">Revert day</button>
+        <br>
+        
+    </section>
+
+      </section>
+  </body>  
+</html>

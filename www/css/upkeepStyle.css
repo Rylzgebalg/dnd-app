@@ -1,0 +1,51 @@
+.characterDiv{
+    border: 5px #c9ad6a double;
+    background-color: #F5F5DC;
+    width:90%;
+    margin:auto;
+    margin-top:10px;
+}
+
+.foodpic {
+    height:20px;
+    /*position: relative;
+    top: 4px;*/
+}
+
+.waterpic {
+    height:20px;
+    /*position: relative;
+    top: 3px;*/
+}
+
+.foodbar::-moz-progress-bar{
+    background: burlywood;
+}
+
+.waterbar::-moz-progress-bar{
+    background: green;
+
+}
+
+.charName {
+    margin: 0px;
+}
+
+
+th {
+    border-bottom: 1px solid #58180d;
+    border-collapse: collapse;
+}
+
+.borderleft {
+    border-left: 1px solid #58180d;
+    border-collapse: collapse;
+}
+
+th, td {
+    width:40%;
+}
+
+input{
+    text-align: center;
+}

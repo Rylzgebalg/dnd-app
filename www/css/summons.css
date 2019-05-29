@@ -1,0 +1,13 @@
+div {
+    border: black 1px solid;
+    margin: 2px;
+}
+
+div > div {
+    border: red 1px solid;
+    margin: 2px;
+}
+
+div > table {
+    margin: auto;
+}

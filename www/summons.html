@@ -2,17 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Wild Magic</title>
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/wildmagicScript.js"></script>
-    <script src="js/menuChange.js"></script>
-
-    <link rel="stylesheet" href="css/buttons.css">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/wildmagic.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/summons.css">
+
+    <script src="js/jquery-3.3.1.js"></script>
+
+    <script src="js/menuChange.js"></script>
 
 
+
+    <script src="js/summonsScript.js"></script>
+
+
+    <title></title>
   </head>
   <body onload="selectMenuOnStart()">
     <nav id="navigation">
@@ -25,12 +30,17 @@
       <a href="index.html" class="row2"><img class="navButtons" src="img/nocross.png"></a>
       <a><img class="navButtons" src="img/arrowright.png" onclick ="changeMenu()"></a>
     </nav>
+    <section id = "content">
+      <select id="creatureInput">
+        <option value="Wolf">Wolf</option>
+        <option value="Dragon">Dragon</option>
+      </select>
+      <br>
+      <input type="number" id="creatureQuantity" min="1" value="1">
+      <button type="button" onclick="monster()">Name</button>
+      <button type="button" onclick="createCreatureBoard()">Create</button>
 
-  </section>
-  <section id="content">
-    <br><br><br>
-    <button type="button" onclick="surge()">WILD MAGIC SURGE</button>
-    <p id="surge"></p>
-  </section>
+    </section>
   </body>
+
 </html>
