@@ -164,7 +164,6 @@ function longRest(){
 
 function firstStart(){
   if(!(localStorage.getItem("start"))){
-    longRest();
     saveMySlots();
     localStorage.setItem("start", "ok");
     document.getElementById("sides").value=1;

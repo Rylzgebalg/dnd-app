@@ -1,6 +1,10 @@
-#content > button {
+#content > button, #content2 > button {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+#content2 {
+  display: none;
 }
 
 div img {
@@ -27,6 +31,7 @@ div {
 div span {
   display: inline-block;
   min-width: 50%;
+  max-width: 50%;
   /*border: 5px blue double;*/
   text-align: left;
   margin-top: 8px;
@@ -40,7 +45,35 @@ div input {
   text-align: center;
 }
 
-/*
-input + button {
+.purse {
+  width: 60px;
+}
+
+.switchInv {
+  min-width: 49.5vw;
+  text-align: center;
+  display: inline-block;
   
+  /*text-decoration: underline;
+  text-decoration-color: #c9ad6a;*/
+  font-size: 26px;
+  color: #58180d;
+  margin-bottom: 0.5rem;
+}
+
+#InvButton1 {
+  border-right: 1vw #c9ad6a double;
+  border-bottom:1vw #c9ad6a double;
+  background-color: #F5F5DC;
+}
+
+#InvButton2, #BohButton1 {
+  border-bottom: 1vw #c9ad6a double;
+  color: #c9ad6a;
+}
+
+#BohButton2 {
+  border-left: 1vw #c9ad6a double;
+  border-bottom: 1vw #c9ad6a double;
+  background-color: #F5F5DC;
 }

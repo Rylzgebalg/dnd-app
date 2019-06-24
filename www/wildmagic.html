@@ -5,7 +5,10 @@
     <title>Wild Magic</title>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/wildmagicScript.js"></script>
+    <script src="js/menuCreate.js"></script>
     <script src="js/menuChange.js"></script>
+    <script src="js/createHTMLscript.js"></script>
+
 
     <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="css/menu.css">
@@ -14,16 +17,9 @@
 
 
   </head>
-  <body onload="selectMenuOnStart()">
+  <body onload="createMenuOnStart(), selectMenuOnStart()">
     <nav id="navigation">
-      <a><img id="flipThis" class="navButtons" src="img/arrowright.png" onclick ="changeMenu()"></a>
-      <a href="dice.html" class="row1"><img class="navButtons" src="img/dice.png"></a>
-      <a href="wildmagic.html" class="row1"><img class="navButtons" src="img/wildm.png"></a>
-      <a href="spellslots.html" class="row1"><img class="navButtons" src="img/spellslots.png"></a>
-      <a href="consumables.html" class="row2"><img class="navButtons" src="img/cons.png"></a>
-      <a href="upkeep.html" class="row2"><img class="navButtons" src="img/flesh.png"></a>
-      <a href="index.html" class="row2"><img class="navButtons" src="img/nocross.png"></a>
-      <a><img class="navButtons" src="img/arrowright.png" onclick ="changeMenu()"></a>
+
     </nav>
 
   </section>

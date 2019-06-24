@@ -9,6 +9,7 @@
   right: 0;
   width:100%;
   border-bottom: 3px solid #58180d;
+  z-index: 1;
 }
 
 #flipThis {
@@ -35,7 +36,7 @@
 }
 
 
-#content{
+#content, #content2{
   margin-top: 75px;
 }
 

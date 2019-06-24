@@ -57,34 +57,10 @@ function setCount(){
 }
 
 
-
-function changeCount(myId){
-  var current = document.getElementById("count").value;
-  var changeBy = parseInt(document.getElementById(myId).innerHTML);
-  var newNumber = current *1 + changeBy;
-  if(newNumber > 0){
-    document.getElementById("count").value = newNumber;
-  }else {
-    document.getElementById("count").value = current;
-  }
-}
-
-function changeSides(myId){
-  var current = document.getElementById("sides").value;
-  var sides = document.getElementById(myId).innerHTML;
-  sides = sides.substring(1);
-  if(!sides){
-    if(myId == "+Sides"){
-        changeBy = current*1+1;
-    } else if(current > 1) {
-        changeBy = current*1-1;
-    }else {
-      changeBy = current*1;
-    }
-  }else{
-    var changeBy = parseInt(sides);
-  }
-  var newNumber = current *1 + changeBy;
+function changeSides(numOfSides){
+  sides = numOfSides.substring(1, numOfSides.length);
+  
+  var changeBy = parseInt(sides);
   document.getElementById("sides").value = changeBy;
 }
 

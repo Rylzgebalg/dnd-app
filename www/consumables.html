@@ -6,7 +6,12 @@
     <title>Grüß Gott</title>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/consumables.js"></script>
+    <script src="js/consumablesBohScript.js"></script>
+    <script src="js/menuCreate.js"></script>
     <script src="js/menuChange.js"></script>
+    <script src="js/plusMinusButtons.js"></script>
+    <script src="js/createHTMLscript.js"></script>
+
 
     <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="css/menu.css">
@@ -14,22 +19,121 @@
     <link rel="stylesheet" href="css/consumableStyle.css">
 
   </head>
-  <body onload = "loadOnStart(), selectMenuOnStart()">
+  <body onload = "createMenuOnStart(), loadOnStart(), bohLoadOnStart(), loadGoldInventory(),bohLoadGoldInventory() , switchInvBoh(localStorage.getItem('inventoryMode')) , selectMenuOnStart()">
     <nav id="navigation">
-      <a><img id="flipThis" class="navButtons" src="img/arrowright.png" onclick ="changeMenu()"></a>
-      <a href="dice.html" class="row1"><img class="navButtons" src="img/dice.png"></a>
-      <a href="wildmagic.html" class="row1"><img class="navButtons" src="img/wildm.png"></a>
-      <a href="spellslots.html" class="row1"><img class="navButtons" src="img/spellslots.png"></a>
-      <a href="consumables.html" class="row2"><img class="navButtons" src="img/cons.png"></a>
-      <a href="upkeep.html" class="row2"><img class="navButtons" src="img/flesh.png"></a>
-      <a href="index.html" class="row2"><img class="navButtons" src="img/nocross.png"></a>
-      <a><img class="navButtons" src="img/arrowright.png" onclick ="changeMenu()"></a>
-    </nav>
-    <section id="content">
-      <button type="button" onclick="createBlock()">Create new item</button>
-      <!--<button type="button" onclick="localStorage.clear()">Delete storage</button>
--->
 
+    </nav>
+
+    <section id="content">
+      <span id="InvButton1" class="switchInv" onclick = "switchInvBoh(this.innerHTML)">Inventory</span><span id="BohButton1" class="switchInv" onclick = "switchInvBoh(this.innerHTML)">Bag of Holding</span><br>
+      
+      <button class ="inv" type="button" onclick="showHideWallet(this.className)">Show/Hide Money</button>
+      <div id="invWalletDiv">
+      <table id ="walletInvTable" align="center">
+        <tr>
+          <td>
+            <label for="coppInv">Copper</label>
+          </td>
+          <td>
+            <button type="button" onclick="changeInputPM('coppInv', '-', 1)">-</button>
+            <input id ="coppInv" class="purse" type="number" min = "0" value="0" onchange="saveGoldInventory()">
+            <button type="button" onclick="changeInputPM('coppInv', '+', 1)">+</button>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="silvInv">Silver</label>
+          </td>
+          <td>
+            <button type="button" onclick="changeInputPM('silvInv', '-', 1)">-</button>
+            <input id ="silvInv" class="purse" type="number" min = "0" value="0" onchange="saveGoldInventory()">
+            <button type="button" onclick="changeInputPM('silvInv', '+', 1)">+</button>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="goldInv">Gold</label>
+          </td>
+          <td>
+            <button type="button" onclick="changeInputPM('goldInv', '-', 1)">-</button>
+            <input id ="goldInv" class="purse" type="number" min = "0"  value="0" onchange="saveGoldInventory()">
+            <button type="button" onclick="changeInputPM('goldInv', '+', 1)">+</button>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="platInv">Platinum</label>
+          </td>
+          <td>
+            <button type="button" onclick="changeInputPM('platInv', '-', 1)">-</button>
+            <input id ="platInv" class="purse" type="number" min = "0" value="0" onchange="saveGoldInventory()">
+            <button type="button" onclick="changeInputPM('platInv', '+', 1)">+</button>
+            <br>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <button type="button" onclick="createBlock()">Create new item</button>
+      <!----<button type="button" onclick="localStorage.clear()">Delete storage</button>-->
+    </section>
+    <section id="content2">
+      <span id ="InvButton2" class="switchInv" onclick = "switchInvBoh(this.innerHTML)">Inventory</span><span id="BohButton2" class="switchInv" onclick = "switchInvBoh(this.innerHTML)">Bag of Holding</span><br>
+
+      <button class ="boh" type="button" onclick="showHideWallet(this.className)">Show/Hide Money</button>
+      <div id="bohWalletDiv">
+        <table id ="walletInvTable" align="center">
+          <tr>
+            <td>
+              <label for="coppBoh">Copper</label>
+            </td>
+            <td>
+              <button type="button" onclick="changeInputPM('coppBoh', '-', 1)">-</button>
+              <input id ="coppBoh" class="purse" type="number" min = "0" value="0" onchange="bohSaveGoldInventory()">
+              <button type="button" onclick="changeInputPM('coppBoh', '+', 1)">+</button>
+              <br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="silvBoh">Silver</label>
+            </td>
+            <td>
+              <button type="button" onclick="changeInputPM('silvBoh', '-', 1)">-</button>
+              <input id ="silvBoh" class="purse" type="number" min = "0" value="0" onchange="bohSaveGoldInventory()">
+              <button type="button" onclick="changeInputPM('silvBoh', '+', 1)">+</button>
+              <br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="goldBoh">Gold</label>
+            </td>
+            <td>
+              <button type="button" onclick="changeInputPM('goldBoh', '-', 1)">-</button>
+              <input id ="goldBoh" class="purse" type="number" min = "0"  value="0" onchange="bohSaveGoldInventory()">
+              <button type="button" onclick="changeInputPM('goldBoh', '+', 1)">+</button>
+              <br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="platBoh">Platinum</label>
+            </td>
+            <td>
+              <button type="button" onclick="changeInputPM('platBoh', '-', 1)">-</button>
+              <input id ="platBoh" class="purse" type="number" min = "0" value="0" onchange="bohSaveGoldInventory()">
+              <button type="button" onclick="changeInputPM('platBoh', '+', 1)">+</button>
+              <br>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      <button type="button" onclick="bohCreateBlock()">Create new item</button>
     </section>
   </body>
 </html>

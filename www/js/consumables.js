@@ -14,20 +14,15 @@ function loadOnStart(){
 
 //Div-Block für alle anderen Komponenten
 function createItemDiv(itemName, itemCount) {
-  var para = document.createElement("div");
-  para.id = "item" + i.toString();
-
-
-  var element = document.getElementById("content");
-  element.appendChild(para);
-
+  var thisId = "item" + i.toString();
   //Elemente werden im Dokument erzeugt
-  createItemName(para.id, itemName);
-  createControlButton(para.id,"-")
-  createCountField(para.id, itemCount);
-  createControlButton(para.id,"+")
-  createDelButton(para.id);
-  i++;
+  createHTML("div", "content", ["id", thisId]) //Rahmen
+  createHTML("span", thisId, [], itemName); //Name
+  createHTML("button", thisId, ["onclick","changeCount(this.id)", "id", "-" + thisId], "-"); // - Knopf
+  createHTML("input", thisId, ["type", "number", "value", itemCount, "id", "count"+thisId , "onchange", "changeCountOnchange(this.id)"]); // Anzahl
+  createHTML("button", thisId, ["onclick","changeCount(this.id)", "id", "+" + thisId], "+"); // + Knopf
+  createHTML("img", thisId, ["src", "img/nocross.png", "onclick","deleteThisBlock(this.parentNode.id)"]); // Löschen-Knopf
+  i++; 
 }
 
 //Erstellt Gerüst, Reihenfolge der Funktionen ändern für andere Reihenfolge der Elemente
@@ -45,34 +40,6 @@ function createBlock(){
   itemList.push(namePrompt);
   itemList.push(countPrompt);
   localStorage.setItem("list", JSON.stringify(itemList));
-
-}
-
-//Text mit Name für das Item
-function createItemName(myID, name){
-  var para = document.createElement("span");
-  //var name = prompt("Name your Consumable:")
-  var node = document.createTextNode(name);
-  para.appendChild(node);
-
-  var element = document.getElementById(myID);
-  element.appendChild(para);
-}
-
-
-//Feld für die Anzahl
-function createCountField(myID, name) {
-  var para = document.createElement("input");
-  //var name = setNumber();
-  //var node = document.createTextNode(name);
-  //para.appendChild(node);
-
-  var element = document.getElementById(myID);
-  para.setAttribute("type", "number");
-  para.setAttribute("value", name);
-  para.setAttribute("id","count" + myID);
-  element.appendChild(para);
-  para.setAttribute("onblur", "changeCountOnchange(this.id)");
 }
 
 //Eingabe der Itemanzahl
@@ -85,27 +52,6 @@ function setNumber(){
   }
 }
 
-//+ und - Knopf
-function createControlButton(myID, nodeIn){
-  var para = document.createElement("button"); //statt img button und das unten rein für button
-  var node = document.createTextNode(nodeIn);
-  para.appendChild(node);
-  var element = document.getElementById(myID);
-  para.setAttribute("onclick","changeCount(this.id)");
-  para.setAttribute("id", nodeIn + myID);
-  element.appendChild(para);
-}
-
-//Knopf zum Löschen
-function createDelButton(myID){
-  var para = document.createElement("img"); //statt img button und das unten rein für button
-  //var node = document.createTextNode("BIBDEDO");
-  //para.appendChild(node);
-  para.src = "img/nocross.png";
-  var element = document.getElementById(myID);
-  para.setAttribute("onclick","deleteThisBlock(this.parentNode.id)");
-  element.appendChild(para);
-}
 
 //Ändere und speicher Anzahl bei Betätigen der Knöpfe
 function changeCount(id){
@@ -131,12 +77,11 @@ function changeCount(id){
 function changeCountOnchange(id) {
   var currentCount = document.getElementById(id).value;
   var itemList = JSON.parse(localStorage.getItem("list"));
-  var saveTo = id.substring(id.length-1, id.length);
+  var saveTo = getNumberToDelete(id);
   for(var index = 0; index < itemList.length ; index = index + 3 ){
     if(itemList[index] == saveTo){
       itemList[index+2] = currentCount;
     }
-
   }
   localStorage.setItem("list", JSON.stringify(itemList));
 }
@@ -147,7 +92,8 @@ function deleteThisBlock(parentID){
   if (r){
     var parent = document.getElementById("content");
     var child = document.getElementById(parentID);
-    var number = parentID.substring(parentID.length-1, parentID.length);
+    var number = getNumberToDelete(parentID);
+    //parentID.substring(parentID.length-1, parentID.length);
     //alert(number);
     parent.removeChild(child);
 
@@ -159,5 +105,68 @@ function deleteThisBlock(parentID){
       }
     }
     localStorage.setItem("list", JSON.stringify(itemList));
+  }
+}
+
+//Damit können auch mehrstellige Zahlen gefunden werden
+function getNumberToDelete(delID){
+
+  var startIndex = delID.indexOf("m");
+  return delID.substring(startIndex +1, delID.length);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Funktionen für das Gold
+
+function saveGoldInventory(){
+  var wallet = [];
+  wallet[0] = document.getElementById("coppInv").value;
+  wallet[1] = document.getElementById("silvInv").value;
+  wallet[2] = document.getElementById("goldInv").value;
+  wallet[3] = document.getElementById("platInv").value;
+
+  localStorage.setItem("walletInv", JSON.stringify(wallet));
+}
+
+function loadGoldInventory(){
+  if(localStorage.getItem("walletInv")){
+    var wallet = JSON.parse(localStorage.getItem("walletInv"));
+    document.getElementById("coppInv").value = wallet[0];
+    document.getElementById("silvInv").value = wallet[1];
+    document.getElementById("goldInv").value = wallet[2];
+    document.getElementById("platInv").value = wallet[3];
+  }
+  if("invWalletVisibility"){
+    document.getElementById("invWalletDiv").style.display = localStorage.getItem("invWalletVisibility");
+  }
+  if("bohWalletVisibility"){
+    document.getElementById("bohWalletDiv").style.display = localStorage.getItem("bohWalletVisibility");
+  }
+}
+
+
+
+function showHideWallet(userClass){
+  var disp = document.getElementById(userClass + "WalletDiv").style.display;
+  if(disp !== "none"){
+    document.getElementById(userClass + "WalletDiv").style.display ="none";
+  }else{
+    document.getElementById(userClass + "WalletDiv").style.display = "inline-block";
+  }
+  localStorage.setItem(userClass+"WalletVisibility", document.getElementById(userClass + "WalletDiv").style.display);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Funktionen für Ansichtswechsel
+
+function switchInvBoh(clickedOn){ //inneres vom html element muss direkt übergeben werden
+  //alert(clickedOn);
+  if(clickedOn == "Inventory"){
+    document.getElementById("content").style.display = "block";
+    document.getElementById("content2").style.display = "none";
+    localStorage.setItem("inventoryMode", clickedOn);
+  }else {
+    document.getElementById("content").style.display = "none";
+    document.getElementById("content2").style.display = "block";
+    localStorage.setItem("inventoryMode", clickedOn);
   }
 }

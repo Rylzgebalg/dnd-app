@@ -35,77 +35,31 @@ function createCreatureBoard() {
   var creatureType = document.getElementById("creatureInput").value;
   var creature = chooseCreature(creatureType);
   var quantity = document.getElementById("creatureQuantity").value;
-  var para = document.createElement("div");
-  var node = document.createTextNode("Summoned "+ creature.name+"(s)");
-  var element = document.getElementById("content");
-  para.setAttribute("id",creature.name+i.toString());
-  para.appendChild(node);
-  element.appendChild(para);
 
-  createAttackButton(para.id);
+  var thisID = creature.name+i.toString();
+  createHTML("div", "content", ["id", thisID], "Summoned "+ creature.name+"(s)"); //div für alle anderen komponenten
+  createHTML("button", thisID , ["id", "Attack_" + thisID, "onclick","allCreaturesAttack(this.id, this.parentNode.id)"], "Attack"); //Angriffsknopf
 
 
   for(var index = 1; index <= quantity ; index++){
-  createCreatureDiv(para.id, index.toString(), creature, creatureType);
+    createCreatureDiv(thisID, index.toString(), creature, creatureType);
   }
 
   i++;
 
 }
 
+
 //Block für individuelle Kreatur
 function createCreatureDiv(parentID, number, creature, creatureType){
-  var para = document.createElement("div");
-  var element = document.getElementById(parentID);
-  para.setAttribute("id",parentID+"_"+number);
-  element.appendChild(para);
-
-  createCreatureName(para.id, number, creature.name, parentID);
-  createCreatureHP(para.id, creature.hp);
-  createAttackTable(para.id, creatureType);
+  var thisID = parentID+"_"+number;
+  createHTML("div", parentID, ["id",thisID]); //div für eine Kreatur
+  createHTML("span", thisID, ["id","Attack_"+parentID+"_Name"], creature.name+" "+number); //Namesfeld der i-ten Kreatur
+  createHTML("input", thisID, ["type", "number", "value", creature.hp, "max", creature.hp, "id",thisID+"_HP"]); //HP-Feld
+  createHTML("table", thisID, ["id",thisID+"_Table"]);// <table>
+  createTableHeaderTR(thisID+"_Table", creatureType);//Tabelle füllen
 }
 
-//Kreaturennamen durchnummeriert
-function createCreatureName(parentID, number, creatureName, boardID){
-  var para = document.createElement("span");
-  var node = document.createTextNode(creatureName+" "+number);
-  var element = document.getElementById(parentID);
-  para.setAttribute("id","Attack_"+boardID+"_Name");
-  para.appendChild(node);
-  element.appendChild(para);
-}
-
-//Input-Feld mit HP, änderbar
-function createCreatureHP(parentID, creatureHP){
-  var para = document.createElement("input");
-  var element = document.getElementById(parentID);
-  para.setAttribute("type", "number");
-  para.setAttribute("value", creatureHP);
-  para.setAttribute("id",parentID+"_HP");
-  element.appendChild(para);
-  
-}
-
-//Lässt alle Kreaturen in einem Block angreifen
-function createAttackButton(parentID) {
-  var para = document.createElement("button");
-  var node = document.createTextNode("Attack");
-  para.appendChild(node);
-  var element = document.getElementById(parentID);
-  para.setAttribute("onclick","allCreaturesAttack(this.id, this.parentNode.id)");
-  para.setAttribute("id", "Attack_" + parentID);
-  element.appendChild(para);
-}
-
-//Tabelle für Attack Rolls, Damage Rolls
-function createAttackTable(parentID, creatureType){
-  var para = document.createElement("table");
-  var element = document.getElementById(parentID);
-  para.setAttribute("id",parentID+"_Table");
-  element.appendChild(para);
-  createTableHeaderTR(para.id, creatureType);
-  
-}
 
 //Erstellt <tr>-Teil der Tabelle
 function createTableHeaderTR(parentID,creatureType){
@@ -159,7 +113,6 @@ function createAttackRollRow(parentID, creatureType){
     //para.appendChild(node);
   }
 }
-//Button muss wissen, auf welche creature er sich beziehen muss
 
 /******************************************************************************************************************************************************** */
 //Funktionen
@@ -176,11 +129,6 @@ function attackRoll(creature) {
     return roll;
   }
 }
-
-function aaa(){
-  //for 
-}
-
 
 function allCreaturesAttack(myID, divID){
 
