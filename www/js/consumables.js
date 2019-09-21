@@ -62,7 +62,7 @@ function changeCount(id){
   document.getElementById(inputID).value = currentCount;
 
   var itemList = JSON.parse(localStorage.getItem("list"));
-  var saveTo = id.substring(id.length-1, id.length);
+  var saveTo = getNumberOfBlock(id);
   //alert(saveTo);
   for(var index = 0; index < itemList.length ; index = index + 3 ){
     if(itemList[index] == saveTo){
@@ -77,7 +77,7 @@ function changeCount(id){
 function changeCountOnchange(id) {
   var currentCount = document.getElementById(id).value;
   var itemList = JSON.parse(localStorage.getItem("list"));
-  var saveTo = getNumberToDelete(id);
+  var saveTo = getNumberOfBlock(id);
   for(var index = 0; index < itemList.length ; index = index + 3 ){
     if(itemList[index] == saveTo){
       itemList[index+2] = currentCount;
@@ -92,7 +92,7 @@ function deleteThisBlock(parentID){
   if (r){
     var parent = document.getElementById("content");
     var child = document.getElementById(parentID);
-    var number = getNumberToDelete(parentID);
+    var number = getNumberOfBlock(parentID);
     //parentID.substring(parentID.length-1, parentID.length);
     //alert(number);
     parent.removeChild(child);
@@ -109,7 +109,7 @@ function deleteThisBlock(parentID){
 }
 
 //Damit können auch mehrstellige Zahlen gefunden werden
-function getNumberToDelete(delID){
+function getNumberOfBlock(delID){
 
   var startIndex = delID.indexOf("m");
   return delID.substring(startIndex +1, delID.length);
@@ -159,7 +159,6 @@ function showHideWallet(userClass){
 //Funktionen für Ansichtswechsel
 
 function switchInvBoh(clickedOn){ //inneres vom html element muss direkt übergeben werden
-  //alert(clickedOn);
   if(clickedOn == "Inventory"){
     document.getElementById("content").style.display = "block";
     document.getElementById("content2").style.display = "none";
@@ -169,4 +168,5 @@ function switchInvBoh(clickedOn){ //inneres vom html element muss direkt überge
     document.getElementById("content2").style.display = "block";
     localStorage.setItem("inventoryMode", clickedOn);
   }
+  //alert(clickedOn);
 }

@@ -10,5 +10,5 @@ function changeInputPM(targetID, myOperation, changeBy){
     }
     if(currentVal < 0 && !(arguments[arguments.length-1] === true) ){currentVal = 0;}
     document.getElementById(targetID).value = currentVal;
-
+ 
 }

@@ -1,0 +1,3 @@
+data = '[{"name": "Wolf", "hp": 11, "attacks": 1, "dd": [4],"nodd": [2], "hitMod": 4, "dmgMod": [2]},\
+  {"name": "Wolf Spider" , "hp": 11, "attacks": 2, "dd": [6,6],"nodd": [2,1], "hitMod": 3, "dmgMod": [1,0]},\
+  {"name": "Ancient Elder Purple Dragon", "hp": 198, "attacks": 3, "dd": [120,3,3],"nodd": [2,2,2], "hitMod": 3, "dmgMod": [8,1,2]}]'; 

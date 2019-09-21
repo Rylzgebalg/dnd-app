@@ -1,13 +1,33 @@
 div {
-    border: black 1px solid;
+    border: 5px #c9ad6a double;
+    background-color: #F5F5DC;
     margin: 2px;
+    margin-bottom: 15px;
 }
 
 div > div {
-    border: red 1px solid;
-    margin: 2px;
+    border: #c9ad6a 2px solid;
+    margin: 10px;
+    background-color: #F5F5DC;
+    padding-top:5px;
+}
+
+td {
+    background-color: #F5F5DC;
+}
+
+button{
+    margin: 5px;
 }
 
 div > table {
     margin: auto;
+}
+
+.damageSpans{
+    display: block;
+}
+
+.critSpans {
+    display: none;
 }

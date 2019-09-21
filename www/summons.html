@@ -10,29 +10,27 @@
 
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/menuCreate.js"></script>
-
     <script src="js/menuChange.js"></script>
-
-
-
     <script src="js/summonsScript.js"></script>
+    <script src="js/summonsSelectSet.js"></script>
     <script src="js/createHTMLscript.js"></script>
-
+    <script src="js/plusMinusButtons.js"></script>
+    <script type = "text/javascript" src="js/data.json"></script>
 
     <title></title>
   </head>
-  <body onload="createMenuOnStart(), selectMenuOnStart()">
+  <body onload="createMenuOnStart(), selectMenuOnStart(), setCreaturesInSelect()">
     <nav id="navigation">
 
     </nav>
     <section id = "content">
       <select id="creatureInput">
-        <option value="Wolf">Wolf</option>
-        <option value="Dragon">Dragon</option>
+
       </select>
       <br>
+      <button type="button" onclick="changeInputPM('creatureQuantity', '-', 1)">-</button>
       <input type="number" id="creatureQuantity" min="1" value="1">
-      <button type="button" onclick="monster()">Name</button>
+      <button type="button" onclick="changeInputPM('creatureQuantity', '+', 1)">+</button>
       <button type="button" onclick="createCreatureBoard()">Create</button>
 
     </section>
