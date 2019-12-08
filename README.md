@@ -4,6 +4,10 @@
 2) Mit Dateimanager des Handys App installieren.
 
 ## Patchnotes
+### 8.12.19: Ver. 0.6.1
+#### Neu/Änderung:
++ Inventar reworked
+
 ### 22.09.19: Ver. 0.6
 #### Neu:
 + Manager, mit dem viele Kreaturen im Kampf schnell gespielt werden können
