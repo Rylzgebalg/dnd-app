@@ -1,0 +1,54 @@
+/*
+#content div {
+    border: 1px black solid;
+}*/
+
+div {
+    border: 5px #c9ad6a double;
+    background-color: #F5F5DC;
+    margin: 2px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+div > div {
+    border: #c9ad6a 2px solid;
+    margin: 10px;
+    background-color: #F5F5DC;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+div img {
+    height: 25px;
+    border: 1px black solid;
+    background-color: red;
+    margin: 0;
+    position: relative;
+    top: 14px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+
+.renameIcon {
+    background-color:lightblue;
+}
+
+.moveUpIcon{
+    background-color: #c9ad6a;
+    transform: rotate(270deg);
+    top:1px;
+}
+
+.moveDownIcon{
+    background-color: #c9ad6a;
+    transform: rotate(90deg);
+    top:1px;
+}
+
+.copyIcon {
+    background-color:lightgreen;
+}

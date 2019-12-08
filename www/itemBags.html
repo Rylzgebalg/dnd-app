@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>Grüß Gott</title>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script src="js/itemBagsScript.js"></script>
+        <script src="js/menuCreate.js"></script>
+        <script src="js/menuChange.js"></script>
+        <script src="js/plusMinusButtons.js"></script>
+        <script src="js/createHTMLscript.js"></script>
+
+
+        <link rel="stylesheet" href="css/buttons.css">
+        <link rel="stylesheet" href="css/menu.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/itemBagsStyle.css">
+ 
+
+
+
+    </head>
+        <body onload="createMenuOnStart(), selectMenuOnStart(), updateSelect(), loadCurrentBag()">
+            <nav id="navigation">
+                
+            </nav>
+            <section id=content>
+                <button onclick="testFunction()">test</button> 
+                <!--<button onclick="localStorage.clear()">Kill all</button>-->
+                <button onclick="createNewBag()">New</button>
+                <select id="bagSelect" onchange="changeBag(), saveCurrentBag()">
+                </select>
+            </section>
+    </body>
+</html>
