@@ -19,3 +19,8 @@ div>img, div>a>img {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
+
+section>input {
+    width:90%;
+}
