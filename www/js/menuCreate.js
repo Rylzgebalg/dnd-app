@@ -28,16 +28,16 @@ function createMenuOnStart(){
 
 
 
-/*
-    createHTML("a","navigation",["id", "blankLink1", "href","itemBags.html","class","navRow"]);
-    createHTML("img", "blankLink1", ["class", "navButtons", "src", "img/nocross.png"]);
+
+    createHTML("a","navigation",["id", "blankLink1", "href","index.html","class","navRow"]);
+    createHTML("img", "blankLink1", ["class", "navButtons", "src", "img/switch.png"]);
 
     createHTML("a","navigation",["id", "blankLink2", "href","index.html","class","navRow"]);
     createHTML("img", "blankLink2", ["class", "navButtons", "src", "img/nocross.png"]);
 
     createHTML("a","navigation",["id", "blankLink3", "href","index.html","class","navRow"]);
     createHTML("img", "blankLink3", ["class", "navButtons", "src", "img/nocross.png"]);
-*/
+
 
 
 

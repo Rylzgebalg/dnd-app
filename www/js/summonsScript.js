@@ -35,6 +35,7 @@ function chooseCreature2(creatureType){
 var i =1;
 var trigger = true;
 
+
 function chooseCreature(creatureType){
   var index;
   var creatureData = JSON.parse(data); 

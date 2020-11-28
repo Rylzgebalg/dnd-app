@@ -21,38 +21,47 @@
 
         <script src="js/menuChange.js"></script>
         <script src="js/menuCreate.js"></script>
-        <script src="js/createHTMLscript.js"></script>
-        <script src="js/charManagement.js"></script>
+		<script src="js/createHTMLscript.js"></script>
+		<script src="js/charManagement.js"></script>
         <script type = "text/javascript" src="js/dataFiles/classes.js"></script>
-
+        <script type = "text/javascript" src="js/dataFiles/races.js"></script>
 
         <link rel="stylesheet" href="css/buttons.css">
         <link rel="stylesheet" href="css/menu.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/consumableStyle.css">
+
         <title>Hello World</title>
     </head>
     
     
-    <body onload = "createMenuOnStart(), selectMenuOnStart(), updateCharSelect(), displayActiveChar()">
+    <body onload = "createMenuOnStart(), selectMenuOnStart(),fillRaceSelect(),createSubraces(), createCEfirstClass(), createMulticlasses('CEfirstClass_select', 'CEfirstClass'), loadCharToEdit()">
       <nav id="navigation">
       </nav>
       <section id="content">
-        <!--<a href="babugame.html">pls ple teh babu gam</a>-->
-		<select id="charSelect" onchange="markActiveChar(), displayActiveChar()">
-			
+		<input id = "inputForName" class="charProperties"></input>
+		<br>
+		
+		<select id ="raceSelect" class="charProperties" onchange="createSubraces()">
+		</select>
+        <br>
+        
+		<select id="subraceSelect" class="charProperties">
 		</select>
 		<br>
-		<a href="charEditor.html" onclick="setOperation(this.children[0].innerHTML)"><button >New</button></a>
-		<a href="charEditor.html" onclick="setOperation(this.children[0].innerHTML)"><button >Edit</button></a>
-		<button onclick="deleteChar()">Delete</button>
+
+		<br>
+		<br>
+		<a href="index.html"><button onclick="createEditChar()">Finish</button></a>
+		<a href="index.html"><button>Cancel</button></a>
+        <button onclick="giveHer()">alarm</button>
+        <div id="CEfirstClass"> <!--multiclass mit javascript hier rein-->
+
+
+        </div>
+        
+        <button id="moreMulticlassesButton" onclick="makeMulticlassBlock('new')">MULTICLASSING</button>
 		
-		
-		<p id="activeCharP">Currently playing as:<br>
-        <span id = "activeCharName"></span>
-        <br><span id="activeCharRace"></span> (<span id="activeCharSubrace"></span>)
-        <br>Character Lvl. <span id="activeCharTotalLevel"></span>
-        </p id="activeCharP">
       </section>
     </body>
 </html>

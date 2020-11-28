@@ -40,6 +40,19 @@ input {
   width: 35px;
 }
 
+#inputForName {
+  width: 95%;
+}
+
+#CEfirstClass, .MulticlassDiv {
+  text-align: center;
+  padding:3px;
+}
+
+#CEfirstClass > input, .MulticlassDiv > input {
+  margin: 5px;
+}
+
 select{
   width:95%;
 }

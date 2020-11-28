@@ -1,0 +1,53 @@
+gegner bei selbem buff
+mark blue, wolves
+mark kill enemy red
+collect blue
+mark gromp
+collect wolfes
+mark raptor, red, krugs, scuttler
+mark steal enemy gromp
+collect raptor, red, krugs, scuttler
+gank oder recall
+
+
+gegner start bei red
+mark blue, wolves
+gegnerjungle: fight bei raptors
+steal raptors
+collect blue
+mark gromp
+collect wolves
+mark raptors, red, krugs
+(scuttle)
+collect redside
+
+
+enemy topside, will raptors
+mark blue, wolves
+steal enemy blue
+(mark scuttle)
+mark redside
+collect blueside
+mark gromp
+scuttler
+
+
+enemy start unbekannt, kein invade
+mark blue, wolves, raptors
+mark smite red
+ward river
+collect raptor,wolves, blue
+mark gromp
+smite enemy raptors
+scuttlers smite
+
+
+angst vor invade
+mark blue, wolves
+smite red
+mark raptors
+collect wolves, blue,
+mark gromp
+collect raptors
+mark krugs
+scuttlr

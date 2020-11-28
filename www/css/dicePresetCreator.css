@@ -1,0 +1,21 @@
+#presetSpan>div {
+    border: 5px #c9ad6a double;
+    background-color: #F5F5DC;
+    margin: 2px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+div>img, div>a>img {
+    height: 25px;
+    border: 1px black solid;
+    margin: 0;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 10px;
+    position: relative;
+    top: 14px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

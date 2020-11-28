@@ -104,11 +104,10 @@ function deleteBag(bagID){
     var child = document.getElementById(bagID);
     var parent = document.getElementById("content");
     parent.removeChild(child);
-
     var bagArray = JSON.parse(localStorage.getItem("bagList"));
-    for(i = 0; i < bagArray.length; i++){
+    for(i = 0; i < bagArray.length; i = i+3){
         if(bagID == bagArray[i]){
-            bagArray.splice(i, i+3);
+            bagArray.splice(i, 3);
         }
     }
     localStorage.setItem("bagList", JSON.stringify(bagArray));
@@ -136,6 +135,8 @@ function renameBag(bagID){
         }
     }
     localStorage.setItem("bagList", JSON.stringify(bagArray));
+    updateSelect();
+    loadCurrentBag();
 }
 /********************************************************************************************************************************************************************/
 //Alles mit Items
@@ -258,7 +259,11 @@ function updateItems(){
 }
 
 
-
+/**
+ * Löscht Item vom Interface und aus dem Itemarray der Tasche
+ * @param {*} itemID
+ *  
+ */
 function deleteItem(itemID){
     if(!confirm("Delete?")){return 0;}
 
@@ -273,7 +278,7 @@ function deleteItem(itemID){
     //alert(itemArray);
     for(i = 0; i < itemArray.length; i = i+4){
         if(itemID == itemArray[i]){
-            itemArray.splice(i, i+4);
+            itemArray.splice(i, 4);
         }
     }
     localStorage.setItem(parentID, JSON.stringify(itemArray));
@@ -449,10 +454,12 @@ function findFreeNumber(array) {
 //Sucht die nächste kleinste Zahl, die nicht im array enthalten ist. Damit werden neue id-nummern ermittelt
 function findFreeNumber(array) {
     var checkFor = 1;
-    
-    while(stringIncludes(array, checkFor)){
-        checkFor++;
-    }
+    alert(array.length)
+	if(array.length > 0){
+		while(stringIncludes(array, checkFor)){
+			checkFor++;
+		}
+	}
     return checkFor;
 }
 

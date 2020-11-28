@@ -6,24 +6,33 @@
     <title>Grüß Gott</title>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/scriptDice.js"></script>
+    <script src="js/dicePresetCreator.js"></script>
     <script src="js/menuCreate.js"></script>
     <script src="js/menuChange.js"></script>
     <script src="js/plusMinusButtons.js"></script>
     <script src="js/createHTMLscript.js"></script>
+    <script src="js/utilityScripts.js"></script>
 
 
     <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/diceFlex.css">
+    <link rel="stylesheet" href="css/dicePresetCreator.css">
+    
 
 
   </head>
-  <body onload="createMenuOnStart(), selectMenuOnStart()">
+  <body onload="createMenuOnStart(), selectMenuOnStart(), loadDicePresets()">
     <nav id="navigation">
 
     </nav>
     <section id="content">
+      <span id="presetSpan">
+        <a href="dicePresetCreator.html"><button onclick="localStorage.setItem('diceOperation','new')">NEW</button></a>
+      </span>
+      
+      <span>
       <form>
         <label class="header" for="count">Würfelzahl:</label><br>
         <div id="flex1">
@@ -65,6 +74,7 @@
       <button type="button" onclick ="rollDice()">Würfeln</button>
       <p id="diceAdded"><span id="ho"></span></p>
       <p id="allNumbers"><span id="he"></span></p>
+    </span>
     </section>
 
   </body>

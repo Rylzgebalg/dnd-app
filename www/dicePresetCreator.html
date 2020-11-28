@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>Grüß Gott</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/scriptDice.js"></script>
+    <script src="js/dicePresetCreator.js"></script>
+    <script src="js/menuCreate.js"></script>
+    <script src="js/menuChange.js"></script>
+    <script src="js/plusMinusButtons.js"></script>
+    <script src="js/createHTMLscript.js"></script>
+    <script src="js/utilityScripts.js"></script>
+
+
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/diceFlex.css">
+    <link rel="stylesheet" href="css/dicePresetCreator.css">
+
+
+
+  </head>
+  <body onload="createMenuOnStart(), selectMenuOnStart(), setUpPresetEdit()">
+    <nav id="navigation">
+
+    </nav>
+    <section id="content">
+    
+      <input class ="dicePresetProperty" type="text">
+            <table>
+                <thead>
+                  <tr>
+                    <th>Sides</th>
+                    <th>Number</th>
+                    <th>Mod per Die</th>
+                    <th>Mod on Sum</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class ="dicePresetProperty">4</td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                  </tr>
+                  <tr>
+                    <td class ="dicePresetProperty">6</td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                  </tr>
+                  <tr>
+                    <td class ="dicePresetProperty">8</td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                  </tr>
+                  <tr>
+                    <td class ="dicePresetProperty">10</td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                  </tr>
+                  <tr>
+                    <td class ="dicePresetProperty">12</td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                  </tr>
+                  <tr>
+                    <td class ="dicePresetProperty">20</td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                    <td><input class ="dicePresetProperty" type="number" value="0"></td>
+                  </tr>
+                </tbody>
+                </table>
+
+                <a href="dice.html"><button onclick="saveDicePreset()">Save</button></a>
+		            <a href="dice.html"><button>Cancel</button></a>
+
+
+
+
+
+    </section>
+
+  </body>
+</html>
